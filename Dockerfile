@@ -1,11 +1,11 @@
 FROM public.ecr.aws/lambda/python:3.10
  
-WORKDIR /code
+WORKDIR "${LAMBDA_TASK_ROOT}"
  
-COPY ./requirements.txt /code/requirements.txt
+COPY ./requirements.txt "${LAMBDA_TASK_ROOT}"
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
  
-COPY ./app /code/app
+COPY ./app "${LAMBDA_TASK_ROOT}"
 
-CMD ["app.main.handler"]
+CMD ["main.handler"]
