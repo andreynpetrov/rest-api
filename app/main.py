@@ -7,8 +7,8 @@ app = FastAPI()
 
 @app.get("/")
 def root(request: Request):
-    print(request.scope["aws.event"])
-    return {"aws_event": request.scope["aws.event"]}
+    aws_event = request.scope.get("aws.event")
+    return {"aws_event": aws_event}
 
 
 handler = Mangum(app, lifespan="auto")
