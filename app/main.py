@@ -1,19 +1,14 @@
-from typing import Union
-
 from fastapi import FastAPI
 from mangum import Mangum
+from starlette.requests import Request
 
 app = FastAPI()
 
 
 @app.get("/")
-def read_root():
-    return {"msg": "Hello World"}
+def root(request: Request):
+    print(request.scope["aws.event"])
+    return {"aws_event": request.scope["aws.event"]}
 
 
-@app.get("/api/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
-
-handler = Mangum(app, lifespan="off")
+handler = Mangum(app, lifespan="auto")
