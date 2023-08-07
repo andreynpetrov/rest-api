@@ -8,6 +8,7 @@ app = FastAPI()
 @app.get("/")
 def root(request: Request):
     aws_event = request.scope.get("aws.event")
+    print(aws_event)
     return {"aws_event": aws_event}
 
 
