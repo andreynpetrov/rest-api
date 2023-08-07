@@ -1,0 +1,125 @@
+{
+    "aws_event": {
+        "version": "1.0",
+        "resource": "/",
+        "path": "/",
+        "httpMethod": "GET",
+        "headers": {
+            "Content-Length": "0",
+            "Host": "api-eu.smartbrood.com",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64d1788f-6a87c12d719338c9494e3720",
+            "X-Forwarded-For": "81.33.96.27",
+            "X-Forwarded-Port": "443",
+            "X-Forwarded-Proto": "https",
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-encoding": "gzip, deflate, br",
+            "accept-language": "en,ru;q=0.9,en-US;q=0.8",
+            "cache-control": "max-age=0",
+            "sec-ch-ua": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"macOS\"",
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "none",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1"
+        },
+        "multiValueHeaders": {
+            "Content-Length": [
+                "0"
+            ],
+            "Host": [
+                "api-eu.smartbrood.com"
+            ],
+            "User-Agent": [
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+            ],
+            "X-Amzn-Trace-Id": [
+                "Root=1-64d1788f-6a87c12d719338c9494e3720"
+            ],
+            "X-Forwarded-For": [
+                "81.33.96.27"
+            ],
+            "X-Forwarded-Port": [
+                "443"
+            ],
+            "X-Forwarded-Proto": [
+                "https"
+            ],
+            "accept": [
+                "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+            ],
+            "accept-encoding": [
+                "gzip, deflate, br"
+            ],
+            "accept-language": [
+                "en,ru;q=0.9,en-US;q=0.8"
+            ],
+            "cache-control": [
+                "max-age=0"
+            ],
+            "sec-ch-ua": [
+                "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+            ],
+            "sec-ch-ua-mobile": [
+                "?0"
+            ],
+            "sec-ch-ua-platform": [
+                "\"macOS\""
+            ],
+            "sec-fetch-dest": [
+                "document"
+            ],
+            "sec-fetch-mode": [
+                "navigate"
+            ],
+            "sec-fetch-site": [
+                "none"
+            ],
+            "sec-fetch-user": [
+                "?1"
+            ],
+            "upgrade-insecure-requests": [
+                "1"
+            ]
+        },
+        "queryStringParameters": null,
+        "multiValueQueryStringParameters": null,
+        "requestContext": {
+            "accountId": "904317604667",
+            "apiId": "z7ivexzabb",
+            "domainName": "api-eu.smartbrood.com",
+            "domainPrefix": "api-eu",
+            "extendedRequestId": "JT_GhgE9DoEEJuA=",
+            "httpMethod": "GET",
+            "identity": {
+                "accessKey": null,
+                "accountId": null,
+                "caller": null,
+                "cognitoAmr": null,
+                "cognitoAuthenticationProvider": null,
+                "cognitoAuthenticationType": null,
+                "cognitoIdentityId": null,
+                "cognitoIdentityPoolId": null,
+                "principalOrgId": null,
+                "sourceIp": "81.33.96.27",
+                "user": null,
+                "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+                "userArn": null
+            },
+            "path": "/default/",
+            "protocol": "HTTP/1.1",
+            "requestId": "JT_GhgE9DoEEJuA=",
+            "requestTime": "07/Aug/2023:23:04:47 +0000",
+            "requestTimeEpoch": 1691449487870,
+            "resourceId": "GET /",
+            "resourcePath": "/",
+            "stage": "default"
+        },
+        "pathParameters": null,
+        "stageVariables": null,
+        "body": null,
+        "isBase64Encoded": false
+    }
+}
