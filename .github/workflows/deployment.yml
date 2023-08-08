@@ -9,6 +9,7 @@ jobs:
   build-and-publish-a-docker-image-to-aws-ecr:
     uses: ./.github/workflows/publishing-images-to-AWS-ECR.yml
   deployment-to-dev:
+    needs: build-and-publish-a-docker-image-to-aws-ecr
     runs-on: ubuntu-latest
     environment: dev
     defaults:
