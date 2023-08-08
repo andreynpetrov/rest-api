@@ -11,7 +11,6 @@ jobs:
     environment: dev
     defaults:
       run:
-        shell: bash
         working-directory: terraform
     steps:
       - name: Check env vars
