@@ -1,3 +1,5 @@
+[![Deployment](https://github.com/andreynpetrov/rest-api/actions/workflows/deployment.yml/badge.svg)](https://github.com/andreynpetrov/rest-api/actions/workflows/deployment.yml)
+
 # rest-api
 REST API with AWS infra
 
