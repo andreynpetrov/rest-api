@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+env:
+  IMAGE_NAME: "rest-api"
+  AWS_ACCOUNT_ID: 904317604667
+  AWS_REGION: "eu-west-1"
+
 jobs:
   build-and-publish-a-docker-image-to-aws-ecr:
     uses: ./.github/workflows/publishing-images-to-AWS-ECR.yml
@@ -19,6 +24,14 @@ jobs:
     - name: Check env vars
       run: |
         echo "LAMBDA_NAME: ${{ vars.LAMBDA_NAME }}"
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/my-github-actions-role
+        aws-region: ${{ env.AWS_REGION }}
+        role-session-name: GitHubActions
     - name: Terraform init
       run: |
         terraform init -input=false
