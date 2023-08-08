@@ -17,15 +17,12 @@ jobs:
     needs: build-and-publish-a-docker-image-to-aws-ecr
     runs-on: ubuntu-latest
     environment: dev
-    defaults:
-      run:
-        working-directory: terraform
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
     - name: Check env vars
       run: |
         echo "LAMBDA_NAME: ${{ vars.LAMBDA_NAME }}"
-    - name: Checkout repository
-      uses: actions/checkout@v3
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -33,8 +30,8 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
         role-session-name: GitHubActions
     - name: Terraform init
-      run: |
-        terraform init -input=false
+      run: terraform init -input=false
+      working-directory: terraform
     - name: Terraform apply
-      run: |
-        terraform apply -input=false -auto-approve
+      run: terraform apply -input=false -auto-approve
+      working-directory: terraform
