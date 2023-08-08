@@ -1,5 +1,5 @@
 #
-name: Create and publish a Docker image to ECR
+name: Build and publish a Docker image to AWS ECR
 
 on:
   push:
@@ -10,12 +10,9 @@ on:
       - 'v*'
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-  ECR_IMAGE_NAME: "rest-api"
+  IMAGE_NAME: "rest-api"
   AWS_ACCOUNT_ID: 904317604667
   AWS_REGION: "eu-west-1"
-  BUCKET_NAME: "amplify-mytest-staging-131502-deployment"
 
 jobs:
   build-and-push-image:
@@ -40,12 +37,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_IMAGE_NAME }}
+          images: ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{raw}}
+            type=edge,branch=main
       - name: Build and push Docker image
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
