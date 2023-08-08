@@ -9,10 +9,17 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     environment: dev
+    defaults:
+      run:
+        shell: bash
+        working-directory: terraform
     steps:
-      - name: Check terraform version
-        run: |
-            terraform version
       - name: Check env vars
         run: |
-            echo "LAMBDA_NAME: ${{ vars.LAMBDA_NAME }}"
+          echo "LAMBDA_NAME: ${{ vars.LAMBDA_NAME }}"
+      - name: Terraform init
+        run: |
+          terraform init -input=false
+      - name: Terraform apply
+        run: |
+          terraform apply -input=false -auto-approve
