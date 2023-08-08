@@ -6,20 +6,21 @@ on:
       - main
 
 jobs:
-  deployment:
+  build-and-publish-a-docker-image-to-aws-ecr:
+    uses: ./.github/workflows/publishing-images-to-AWS-ECR.yml
+  deployment-to-dev:
     runs-on: ubuntu-latest
     environment: dev
     defaults:
       run:
         working-directory: terraform
     steps:
-      - uses: actions/checkout@v3
-      - name: Check env vars
-        run: |
-          echo "LAMBDA_NAME: ${{ vars.LAMBDA_NAME }}"
-      - name: Terraform init
-        run: |
-          terraform init -input=false
-      - name: Terraform apply
-        run: |
-          terraform apply -input=false -auto-approve
+    - name: Check env vars
+      run: |
+        echo "LAMBDA_NAME: ${{ vars.LAMBDA_NAME }}"
+    - name: Terraform init
+      run: |
+        terraform init -input=false
+    - name: Terraform apply
+      run: |
+        terraform apply -input=false -auto-approve

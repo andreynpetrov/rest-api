@@ -2,12 +2,7 @@
 name: Build and publish a Docker image to AWS ECR
 
 on:
-  push:
-    branches:
-      - main
-      - 'releases/v[0-9].[0-9].[0-9]'
-    tags:
-      - 'v*'
+  workflow_call:
 
 env:
   IMAGE_NAME: "rest-api"
