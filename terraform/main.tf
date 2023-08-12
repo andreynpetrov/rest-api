@@ -1,16 +1,6 @@
-resource "aws_lambda_function" "this" {
-  function_name                  = "rest-api-dev"
-  role                           = data.aws_iam_role.this.arn
-  description                    = "For API Gateway"
-  memory_size                    = 128
-  package_type                   = "Image"
-  image_uri                      = "${data.aws_ecr_repository.this.repository_url}:edge"
-  publish                        = true
-}
-
-resource "aws_lambda_alias" "this" {
-  name             = "active"
-  description      = "For API Gateway"
-  function_name    = aws_lambda_function.this.arn
-  function_version = aws_lambda_function.this.version
+module "lambda-rest-api" {
+  source                  = "git::ssh://git@github.com:Smartbrood/terraform-aws-lambda.git//.?ref=release/v1.0.0"
+  name                    = "rest-api-dev"
+  aws_ecr_repository_name = "rest-api"
+  image_tag               = "edge"
 }
