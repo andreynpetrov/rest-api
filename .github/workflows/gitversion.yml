@@ -32,3 +32,5 @@ jobs:
           git tag $GITVERSION_SEMVER
       - name: Push git tag
         run: git push origin $GITVERSION_SEMVER
+  deployment:
+    uses: ./.github/workflows/deployment.yml
