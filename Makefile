@@ -10,7 +10,7 @@ install-test:
 	pip install -r requirements-test.txt
 
 test: install install-test
-	pytest
+	pytest --cov=app app/
 
 build:
 	docker build -t ${IMAGE} .
